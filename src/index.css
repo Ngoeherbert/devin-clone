@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --color-surface-0: #f7f6f3;
+  --color-surface-1: #ffffff;
+  --color-surface-2: #ffffff;
+  --color-surface-3: #ffffff;
+
+  --color-text-primary: #1a1a18;
+  --color-text-secondary: #6b6a65;
+  --color-text-muted: #9c9b95;
+
+  --color-border: #e6e4de;
+  --color-border-strong: #d3d1c9;
+
+  --color-accent: #185fa5;
+  --color-accent-fg: #ffffff;
+  --color-bg-accent: #e6f1fb;
+  --color-text-accent: #0c447c;
+  --color-border-accent: #378add;
+
+  --color-success: #3b6d11;
+  --color-bg-success: #eaf3de;
+  --color-text-success: #27500a;
+
+  --color-danger: #a32d2d;
+  --color-bg-danger: #fcebeb;
+  --color-text-danger: #791f1f;
+
+  --color-warning: #854f0b;
+  --color-bg-warning: #faeeda;
+  --color-text-warning: #633806;
+
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+    --color-surface-0: #17171a;
+    --color-surface-1: #1e1e22;
+    --color-surface-2: #232327;
+    --color-surface-3: #2a2a2f;
+
+    --color-text-primary: #f2f1ed;
+    --color-text-secondary: #a6a59f;
+    --color-text-muted: #77766f;
+
+    --color-border: #313136;
+    --color-border-strong: #3d3d43;
+
+    --color-bg-accent: #0c2c47;
+    --color-text-accent: #7fb8ea;
+    --color-bg-success: #17300a;
+    --color-text-success: #a3d16f;
+    --color-bg-danger: #3a1414;
+    --color-text-danger: #f0a3a3;
+
+    --color-bg-warning: #412402;
+    --color-text-warning: #fac775;
+  }
+
+  body {
+    background-color: var(--color-surface-0);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background-color: var(--color-bg-accent);
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  @keyframes shimmer {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+}
