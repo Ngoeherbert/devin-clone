@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Globe, FolderGit2 } from "lucide-react";
 import { toast } from "sonner";
-import { authClient } from "@/lib/auth-client";
+import { authCallbackURL, authClient } from "@/lib/auth-client";
 import { AuthShell } from "@/components/auth/AuthShell";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -33,7 +33,7 @@ export function SignUpPage() {
   };
 
   const handleSocial = async (provider: "google" | "github") => {
-    await authClient.signIn.social({ provider, callbackURL: "/chats" });
+    await authClient.signIn.social({ provider, callbackURL: authCallbackURL("/chats") });
   };
 
   return (

@@ -9,4 +9,9 @@ export const authClient = createAuthClient({
   plugins: [emailOTPClient()],
 });
 
+export function authCallbackURL(path: string) {
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return `${window.location.origin}${normalizedPath}`;
+}
+
 export const { signIn, signUp, signOut, useSession } = authClient;
