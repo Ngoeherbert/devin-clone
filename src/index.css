@@ -79,6 +79,23 @@
   ::selection {
     background-color: var(--color-bg-accent);
   }
+
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  a[href],
+  summary,
+  input[type="checkbox"],
+  input[type="radio"],
+  input[type="file"],
+  select,
+  label:has(input:not(:disabled)) {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
 }
 
 @layer utilities {
